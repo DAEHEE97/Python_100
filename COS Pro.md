@@ -207,62 +207,38 @@ print(hour, minute, second, sep=':')
 
 
 ```python
+# //
+# 버림 나눗셈, 결과에서 소수점 이하는 버림
+
+print(5/2, 5 // 2)  
 print(int(5/2))
-print(5 // 2)   # 버림 나눗셈, 결과에서 소수점 이하는 버림
+
+
 ```
 
+    2.5 2
     2
-    2
 
 
 
 ```python
-'Python' == 'Python'
+print(1 == 1.0, 1!=1.0)
 ```
 
-
-
-
-    True
-
+    True False
 
 
 
 ```python
-'Python' != 'Python'
-```
-
-
-
-
-    False
-
-
-
-
-```python
-# is is not 
+# is
 # is, is not은 객체(object)를 비교합니다.
 
-1 == 1.0
-
-```
-
-
-
-
-    True
-
-
-
-
-```python
 1 is 1.0
 ```
 
     <>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
     <>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
-    <ipython-input-20-2ebf4c947f31>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    <ipython-input-7-2ebf4c947f31>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
       1 is 1.0
 
 
@@ -270,5 +246,271 @@ print(5 // 2)   # 버림 나눗셈, 결과에서 소수점 이하는 버림
 
 
     False
+
+
+
+
+```python
+# not false
+
+if not 0:
+    print('참')    # not 0은 참
+    
+if not None:
+    print('참')    # None은 참
+    
+if not '':
+    print('참')    # not 빈 문자열은 참
+```
+
+    참
+    참
+    참
+
+
+
+```python
+for _ in range(3):
+    print("hello")
+```
+
+    hello
+    hello
+    hello
+
+
+
+```python
+# range(역순)
+for i in range(3, 0, -1):     # 3에서 1까지 역순으로 숫자 생성
+    print('Hello, world!', i)
+```
+
+    Hello, world! 3
+    Hello, world! 2
+    Hello, world! 1
+
+
+
+```python
+# reversed(range())
+
+for i in reversed(range(3)):    # 3에서 1까지 역순으로 숫자 생성
+    print('Hello, world!', i)
+```
+
+    Hello, world! 2
+    Hello, world! 1
+    Hello, world! 0
+
+
+
+```python
+count = int(input('반복할 횟수를 입력하세요: '))
+ 
+while count > 0:     # count가 0보다 클 때 반복
+    print('Hello, world! %d' % count)
+    count -= 1       # count를 1씩 감소시킴
+```
+
+    반복할 횟수를 입력하세요: 3
+    Hello, world! 3
+    Hello, world! 2
+    Hello, world! 1
+
+
+
+```python
+# 3의 배수
+
+for i in range(1, 101):    # 1부터 100까지 100번 반복
+    if i % 3 == 0:         # 3의 배수일 때
+        print(i, end=' ')
+```
+
+    3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 75 78 81 84 87 90 93 96 99 
+
+
+```python
+# 3으로 끝나는
+
+i = 0
+while True:
+    
+    if i % 10 != 3:
+        i += 1
+        continue
+    
+    if i > 73:
+        break
+    
+    print(i, end=' ')
+    i += 1
+```
+
+    3 13 23 33 43 53 63 73 
+
+
+```python
+lst = [10, 20]
+lst.append(30)
+lst
+```
+
+
+
+
+    [10, 20, 30]
+
+
+
+
+```python
+lst = [10]
+lst.extend([20, 30])
+lst
+
+```
+
+
+
+
+    [10, 20, 30]
+
+
+
+
+```python
+lst = [10, 20, 30]
+lst.insert(2, 500)
+lst
+```
+
+
+
+
+    [10, 20, 500, 30]
+
+
+
+
+```python
+lst = [10, 20, 30]
+lst.remove(20)
+lst
+```
+
+
+
+
+    [10, 30]
+
+
+
+
+```python
+lst = [10, 20, 30]
+lst.pop()
+```
+
+
+
+
+    30
+
+
+
+
+```python
+lst
+```
+
+
+
+
+    [10, 20]
+
+
+
+
+```python
+lst = [10, 20, 30, 10, 25, 40]
+lst.index(20)
+```
+
+
+
+
+    1
+
+
+
+
+```python
+lst = [10, 20, 30]
+lst.clear()
+lst
+```
+
+
+
+
+    []
+
+
+
+
+```python
+lst = [10, 20, 30, 10, 25, 40]
+lst.count(10)
+```
+
+
+
+
+    2
+
+
+
+
+```python
+lst = [1, 2, 3]
+lst[len(lst):] = [10]
+lst
+```
+
+
+
+
+    [1, 2, 3, 10]
+
+
+
+
+```python
+lst = [1, 2, 3]
+lst[len(lst):] = [10, 20]
+lst
+```
+
+
+
+
+    [1, 2, 3, 10, 20]
+
+
+
+
+```python
+lst = []
+lst[:] = [10]
+lst[:] = [20]
+lst
+```
+
+
+
+
+    [20]
 
 
