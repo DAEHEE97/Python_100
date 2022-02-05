@@ -697,6 +697,8 @@ for index, value in enumerate(a):
     4 19
 
 
+## 최소 최대
+
 
 ```python
 # min value
@@ -765,6 +767,8 @@ largest_idx
 
 
 ```python
+# min max sort
+
 lst = [38, 21, 53, 62, 19]
 print(min(lst),max(lst))
 
@@ -782,10 +786,297 @@ print(lst[0])
     62
 
 
+## List comprehension
+
+- 리스트 안에 식, for 반복문 등을 지정하여 리스트를 생성하는 것
+
 
 ```python
+lst = [i for i in range(10)]    # 0부터 9까지 숫자를 생성하여 리스트 생성
+lst = list(i for i in range(10))
+lst
+```
+
+
+
+
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+
+```python
+lst = [i + 5 for i in range(10)]    # 0부터 9까지 숫자를 생성하면서 값에 5를 더하여 리스트 생성
+lst
+```
+
+
+
+
+    [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+
+
+
+```python
+lst = [i * 2 for i in range(10)]    # 0부터 9까지 숫자를 생성하면서 값에 2를 곱하여 리스트 생성
+lst
+```
+
+
+
+
+    [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+
+
+
+```python
+lst = [i for i in range(10) if i % 2 == 0]    # 0~9 숫자 중 2의 배수인 숫자(짝수)로 리스트 생성
+lst
+```
+
+
+
+
+    [0, 2, 4, 6, 8]
+
+
+
+
+```python
+lst = [i for i in range(10) if i % 2 == 1]    # 0~9 숫자 중 홀수에 5를 더하여 리스트 생성
+lst
+```
+
+
+
+
+    [1, 3, 5, 7, 9]
+
+
+
+
+```python
+lst = [i * j for j in range(2, 10) for i in range(1, 10)]
+print(lst)
+```
+
+    [2, 4, 6, 8, 10, 12, 14, 16, 18, 3, 6, 9, 12, 15, 18, 21, 24, 27, 4, 8, 12, 16, 20, 24, 28, 32, 36, 5, 10, 15, 20, 25, 30, 35, 40, 45, 6, 12, 18, 24, 30, 36, 42, 48, 54, 7, 14, 21, 28, 35, 42, 49, 56, 63, 8, 16, 24, 32, 40, 48, 56, 64, 72, 9, 18, 27, 36, 45, 54, 63, 72, 81]
+
+
+
+```python
+lst = [i * j for j in range(2, 10)
+           for i in range(1, 10)]
+print(lst)
+```
+
+    [2, 4, 6, 8, 10, 12, 14, 16, 18, 3, 6, 9, 12, 15, 18, 21, 24, 27, 4, 8, 12, 16, 20, 24, 28, 32, 36, 5, 10, 15, 20, 25, 30, 35, 40, 45, 6, 12, 18, 24, 30, 36, 42, 48, 54, 7, 14, 21, 28, 35, 42, 49, 56, 63, 8, 16, 24, 32, 40, 48, 56, 64, 72, 9, 18, 27, 36, 45, 54, 63, 72, 81]
+
+
+## List map
+
+
+```python
+lst = [1.2, 2.5, 3.7, 4.6]
+lst = list(map(int, lst))
+
+print(lst)
+```
+
+    [1, 2, 3, 4]
+
+
+
+```python
+lst = [1.2, 2.5, 3.7, 4.6]
+for i in range(len(lst)):
+    lst[i] = int(lst[i])
+
+print(lst)
+```
+
+    [1, 2, 3, 4]
+
+
+
+```python
+lst = list(map(str, range(10)))
+print(lst)
+
+lst = list(map(int, range(10)))
+print(lst)
 
 ```
+
+    ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+```python
+list_str = input().split()           # input().split()의 결과는 문자열 리스트
+list_int = map(int, list_str)        # 리스트의 요소를 int로 변환, 결과는 맵 객체
+a, b = list_int                      # 맵 객체는 변수 여러 개에 저장할 수 있음
+print(a,b)
+```
+
+    10 30
+    10 30
+
+
+
+```python
+a, b = map(int,input().split())
+print(a,b)
+```
+
+    10 30
+    10 30
+
+
+
+```python
+# 문자열 길이가 5인 단어들
+a = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india']
+lst = [i for i in a if len(i) == 5]
+print(lst)
+```
+
+    ['alpha', 'bravo', 'delta', 'hotel', 'india']
+
+
+## 2d List
+
+
+```python
+lst = [[10, 20], [30, 40], [50, 60]]
+for x, y in lst:    # 리스트의 가로 한 줄(안쪽 리스트)에서 값 두 개를 꺼냄
+    print(x, y)
+```
+
+    10 20
+    30 40
+    50 60
+
+
+
+```python
+lst = [[10, 20], [30, 40], [50, 60]]
+ 
+for i in lst:        # a에서 안쪽 리스트를 꺼냄
+    for j in i:     # 안쪽 리스트에서 값을 하나씩 꺼냄
+        print(j)
+    
+```
+
+    10
+    20
+    30
+    40
+    50
+    60
+
+
+
+```python
+a = [[10, 20], [30, 40], [50, 60]]
+ 
+for i in range(len(a)):            # 세로 크기
+    for j in range(len(a[i])):     # 가로 크기
+        print(a[i][j])
+ 
+```
+
+    10
+    20
+    30
+    40
+    50
+    60
+
+
+
+```python
+a = [[10, 20], [30, 40], [50, 60]]
+ 
+i = 0
+while i < len(a):    # 반복할 때 리스트의 크기 활용(세로 크기)
+    x, y = a[i]
+    print(x, y)
+    i += 1           # 인덱스를 1 증가시킴
+```
+
+    10 20
+    30 40
+    50 60
+
+
+
+```python
+a = [[10, 20], [30, 40], [50, 60]]
+ 
+i = 0
+while i < len(a):           # 가로 크기
+    
+    j = 0
+    while j < len(a[i]):    # 세로 크기
+        print(a[i][j])
+        j += 1              # 가로 인덱스를 1 증가시킴
+        
+    i += 1                  # 세로 인덱스를 1 증가시킴
+```
+
+    10
+    20
+    30
+    40
+    50
+    60
+
+
+
+```python
+a = []    # 빈 리스트 생성
+ 
+for i in range(3):
+    line = []              # 안쪽 리스트로 사용할 빈 리스트 생성
+    for j in range(2):
+        line.append(0)     # 안쪽 리스트에 0 추가
+    a.append(line)         # 전체 리스트에 안쪽 리스트를 추가
+ 
+print(a)
+```
+
+    [[0, 0], [0, 0], [0, 0]]
+
+
+
+```python
+lst = [[0 for j in range(2)] for i in range(3)]
+lst
+```
+
+
+
+
+    [[0, 0], [0, 0], [0, 0]]
+
+
+
+
+```python
+lst = [[0] * 2 for i in range(3)]
+lst
+```
+
+
+
+
+    [[0, 0], [0, 0], [0, 0]]
+
+
 
 
 ```python
