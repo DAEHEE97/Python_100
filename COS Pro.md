@@ -352,9 +352,14 @@ while True:
 
 
 ```python
+# append(값)은 이름 그대로 리스트의 맨 뒤에 값을 추가
+# append(리스트)처럼 리스트를 넣으면 리스트 안에 리스트 추가
+
 lst = [10, 20]
 lst.append(30)
 lst
+
+
 ```
 
 
@@ -366,6 +371,8 @@ lst
 
 
 ```python
+# extend(리스트)는 리스트의 맨 뒤에 다른 리스트를 연결합니
+
 lst = [10]
 lst.extend([20, 30])
 lst
@@ -381,6 +388,8 @@ lst
 
 
 ```python
+# insert(idx, value)
+
 lst = [10, 20, 30]
 lst.insert(2, 500)
 lst
@@ -395,6 +404,8 @@ lst
 
 
 ```python
+# remove(value)
+
 lst = [10, 20, 30]
 lst.remove(20)
 lst
@@ -409,6 +420,8 @@ lst
 
 
 ```python
+# pop()
+
 lst = [10, 20, 30]
 lst.pop()
 ```
@@ -434,6 +447,8 @@ lst
 
 
 ```python
+# index(value)
+
 lst = [10, 20, 30, 10, 25, 40]
 lst.index(20)
 ```
@@ -461,6 +476,8 @@ lst
 
 
 ```python
+# count(value)
+
 lst = [10, 20, 30, 10, 25, 40]
 lst.count(10)
 ```
@@ -474,6 +491,8 @@ lst.count(10)
 
 
 ```python
+# lst[] 값 추가
+
 lst = [1, 2, 3]
 lst[len(lst):] = [10]
 lst
@@ -488,6 +507,8 @@ lst
 
 
 ```python
+# lst[] 값 추가
+
 lst = [1, 2, 3]
 lst[len(lst):] = [10, 20]
 lst
@@ -502,6 +523,8 @@ lst
 
 
 ```python
+# lst[] 값 추가
+
 lst = []
 lst[:] = [10]
 lst[:] = [20]
@@ -514,3 +537,257 @@ lst
     [20]
 
 
+
+
+```python
+lst = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+lst[0:len(lst)]
+# lst[0:]
+```
+
+
+
+
+    [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+
+
+
+```python
+lst[0:-1]
+```
+
+
+
+
+    [0, 10, 20, 30, 40, 50, 60, 70, 80]
+
+
+
+
+```python
+# b = a와 같이 리스트를 다른 변수에 할당하면,
+# 리스트는 b,a 가 될 것 같지만 하나의 리스트 객체입니다.
+
+a = [0, 0, 0, 0, 0]
+b = a
+
+b[2] = 99
+```
+
+
+```python
+print(a, b, a == b, a is b )
+```
+
+    [0, 0, 99, 0, 0] [0, 0, 99, 0, 0] True True
+
+
+
+```python
+a = [0, 0, 0, 0, 0]
+b = a.copy()
+b[2] = 99
+```
+
+
+```python
+print(a, b, a == b, a is b )
+```
+
+    [0, 0, 0, 0, 0] [0, 0, 99, 0, 0] False False
+
+
+
+```python
+# 리스트 덧셈
+
+a = [10, 20, 30]
+b = [1, 2, 3]
+
+c = a + b
+c
+
+```
+
+
+
+
+    [10, 20, 30, 1, 2, 3]
+
+
+
+
+```python
+index,value in enumerate(a)
+```
+
+
+
+
+    (4, False)
+
+
+
+
+```python
+lst = [38, 21, 53, 62, 19]
+
+```
+
+
+```python
+# in    
+for i in lst:
+    print(i)
+
+
+```
+
+    38
+    21
+    53
+    62
+    19
+
+
+
+```python
+# in idx
+for i in range(len(lst)):
+    print(lst[i])
+
+
+```
+
+    38
+    21
+    53
+    62
+    19
+
+
+
+```python
+# while
+i = 0
+while i < len(a):
+    print(a[i])
+    i+=1
+```
+
+    38
+    21
+    53
+    62
+    19
+
+
+
+```python
+a = [38, 21, 53, 62, 19]
+for index, value in enumerate(a):
+    print(index, value)
+```
+
+    0 38
+    1 21
+    2 53
+    3 62
+    4 19
+
+
+
+```python
+# min value
+
+lst = [38, 21, 53, 62, 19]
+
+# smallest idx0 초기화
+smallest = lst[0]
+
+for i in lst:
+    if i < smallest:
+        smallest = i
+        
+smallest
+```
+
+
+
+
+    19
+
+
+
+
+```python
+# max value
+lst = [38, 21, 53, 62, 19]
+
+# largest idx0 초기화
+largest = lst[0]
+
+for i in lst:
+    if i > largest:
+        largest = i
+largest
+```
+
+
+
+
+    62
+
+
+
+
+```python
+# max idx
+lst = [38, 21, 53, 62, 19]
+
+# largest idx = 0
+largest_idx = 0
+
+for i in range(len(lst)):
+    if lst[largest_idx] > lst[i]:
+        largest_idx = i
+        
+largest_idx
+```
+
+
+
+
+    4
+
+
+
+
+```python
+lst = [38, 21, 53, 62, 19]
+print(min(lst),max(lst))
+
+lst.sort()
+print(lst[0])
+
+lst.sort(reverse=True)
+print(lst[0])
+
+
+```
+
+    19 62
+    19
+    62
+
+
+
+```python
+
+```
+
+
+```python
+
+```
